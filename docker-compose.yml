@@ -1,0 +1,27 @@
+version: '2.1'
+
+services:
+  
+  # ------------------------------------------------------------------------------------
+  # HiveMQ 4 MQTT broker
+  # ------------------------------------------------------------------------------------
+  hivemq4:
+    #image: hivemq/hivemq4:latest
+    build: ./hivemq4
+    ports:
+      - 1883:1883 # MQTT/TCP protocol port
+      - 18080:8080 # Control Center port
+      - 8000:8000 # Websockets port
+    volumes:
+      - hivemq_data:/opt/hivemq/data                     # Make broker data persistent throughout stop/start cycles
+      - hivemq_log:/opt/hivemq/log                       # Persist log data
+      - hivemq_license:/opt/hivemq/license               # Persist HiveMQ license
+    environment:
+      JAVA_OPTS: "-XX:+UnlockExperimentalVMOptions -XX:InitialRAMPercentage=30 -XX:MaxRAMPercentage=80 -XX:MinRAMPercentage=30"
+
+volumes:
+  hivemq_data:
+  hivemq_log:
+  hivemq_license:
+
+
