@@ -6,6 +6,7 @@ HiveMQ is a popular MQTT broker that provides a scalable and reliable messaging 
 
 The main goal of this block is to reduce the friction of the configuration of HiveMQ in the edge. This block allows developers to change the configuration of the broker (`config.xml` and the `bridge extension` plus the `license`) using balena Device Variables instead of changing configuration files.
 
+
 ## Block configuration
 
 To add the HiveMQ Block, add this service in your `docker-compose.yml`, as shown below.
@@ -15,7 +16,7 @@ To add the HiveMQ Block, add this service in your `docker-compose.yml`, as shown
     image: bh.cr/marc6/hivemq4-block
     ports:
       - 1883:1883   # MQTT/TCP protocol port
-      - 8080:8080  # Control Center port
+      - 8080:8080   # Control Center port
       - 8000:8000   # Websockets port
     volumes:
       - hivemq_data:/opt/hivemq/data                     # Make broker data persistent throughout stop/start cycles
