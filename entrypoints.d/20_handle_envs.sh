@@ -57,6 +57,9 @@ fi
 #
 if [[ "${HIVEMQ_CONNECTION_ENABLED}" == "true" ]]; then
   echo "Enabling CLOUD connection in bridge-configuration.xml from balenaCloud Device Variables."
+  
+  rm /opt/hivemq/extensions/hivemq-bridge-extension/DISABLED
+
   HIVEMQ_CONNECTION_CONFIGURATION="${HIVEMQ_CONNECTION_CONFIGURATION//$'\n'/}"
   sed -i "s|<\!-- configurable host and port -->|${HIVEMQ_CONNECTION_CONFIGURATION}|" /opt/hivemq/extensions/hivemq-bridge-extension/bridge-configuration.xml
 fi

@@ -1,10 +1,14 @@
 name: HiveMQ MQTT broker
-type: sw.application
+type: sw.block
 description: >-
   HiveMQ Enterprise MQTT broker
 joinable: false
-# By default post-provisioning is overwritten by the deploy-to-balena GitHub action to match README.md
-post-provisioning: Click 'View code' to see the README.
+post-provisioning: >- 
+  HiveMQ is a popular MQTT broker that provides a scalable and reliable messaging platform for IoT applications. MQTT (Message Queuing Telemetry Transport) is a lightweight messaging protocol that is widely used in the IoT industry to facilitate communication between devices and applications. HiveMQ supports MQTT version 5.0, which includes many new features such as user properties, enhanced authentication, and control panel. 
+  
+  The main goal of this block is to reduce the friction of the configuration of HiveMQ in the edge. This block allows developers to change the configuration of the broker (config.xml, the bridge extension and the license) using balena Device Variables instead of changing configuration files.
+
+  Read more information about how to use the HiveMQ block on the [README](https://github.com/mpous/hivemq4-block/).
 assets:
   repository:
     type: blob.asset
@@ -23,4 +27,5 @@ data:
   defaultDeviceType: genericx86-64-ext
   supportedDeviceTypes:
     - genericx86-64-ext
+    - intel-nuc
 
