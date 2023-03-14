@@ -7,7 +7,7 @@ services:
   # ------------------------------------------------------------------------------------
   hivemq4:
     #image: hivemq/hivemq4:latest
-    build: ./hivemq4
+    build: .
     ports:
       - 1883:1883 # MQTT/TCP protocol port
       - 18080:8080 # Control Center port
